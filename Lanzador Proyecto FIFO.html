@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador FIFO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Modal fix, no más movimiento */
+        td {
+            color: black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-800 text-gray-100">
+    <div class="container mx-auto p-4">
+        <header class="flex items-center justify-between p-4 bg-indigo-700 text-white rounded-lg">
+            <img src="./icon/321-3210681_this-escudo-de-la-universidad-mariano-galvez.png" alt="logo" class="w-12">
+            <h1 class="text-xl font-bold">Grupo 3 - Simulador FIFO</h1>
+            <nav>
+                <a href="#" class="text-white hover:text-yellow-400">FIFO (First In, First Out)</a>
+            </nav>
+        </header>
+
+        <main class="mt-8">
+            <div class="text-center">
+                <img src="./icon/fifo.png" alt="Lfifo" class="mx-auto w-48 h-16">
+                <h2 class="text-3xl font-bold text-white mt-4">Bienvenido al simulador del planificador FIFO</h2>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex justify-center">
+                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg w-full" id="newSimulation">Nueva Simulación</button>
+                    <!-- <button class="bg-blue-600 text-white py-2 px-4 rounded-lg w-full" id="lanzar-modal">Ingresar Datos</button> -->
+                </div>
+                <div class="flex justify-center">
+                    <button class="bg-gray-600 text-white py-2 px-4 rounded-lg w-full" id="procesar">Procesar</button>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <h3 class="text-xl font-semibold text-white mb-4">Datos Ingresados</h3>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <table id="transactionTable" class="table-auto w-full">
+                        <thead class="bg-indigo-600 text-white">
+                            <tr>
+                                <th class="px-4 py-2">Id</th>
+                                <th class="px-4 py-2">Ráfaga de CPU</th>
+                                <th class="px-4 py-2">Tiempo de Llegada</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionBody">
+                            <!-- Aquí se agregarán los datos ingresados -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <h3 class="text-xl font-semibold text-white mb-4">Resultados FIFO</h3>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <table id="dataSort" class="table-auto w-full">
+                        <thead class="bg-indigo-600 text-white">
+                            <tr>
+                                <th class="px-4 py-2">Id</th>
+                                <th class="px-4 py-2">Ráfaga de CPU</th>
+                                <th class="px-4 py-2">Tiempo de Llegada</th>
+                                <th class="px-4 py-2">Tiempo de Espera</th>
+                                <th class="px-4 py-2">Tiempo de Retorno</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultTableBody">
+                            <!-- Aquí se agregarán los resultados procesados -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-green-600 text-white text-center py-3 rounded-lg">
+                    Promedio Espera <span id="espera" class="font-bold">0</span>
+                </div>
+                <div class="bg-green-600 text-white text-center py-3 rounded-lg">
+                    Promedio Retorno <span id="retorno" class="font-bold">0</span>
+                </div>
+            </div>
+
+    <!-- Modal
+    <div class="form-ingreso" id="formIngreso">
+        <form id="miForm">
+            <h4 class="text-lg font-semibold mb-4 text-white">Formulario de Ingreso</h4>
+            <input class="controls bg-gray-700 text-white p-2 mb-4 w-full rounded-md" type="text" name="proceso" id="proceso" placeholder="Ingrese el id del proceso">
+            <input class="controls bg-gray-700 text-white p-2 mb-4 w-full rounded-md" type="text" name="CPU" id="CPU" placeholder="Ingrese la ráfaga de CPU">
+            <input class="controls bg-gray-700 text-white p-2 mb-4 w-full rounded-md" type="text" name="Tiempo" id="Tiempo" placeholder="Ingrese el tiempo de llegada">
+            <div class="flex justify-between">
+                <input class="botons bg-indigo-600 text-white p-2 rounded-lg w-full mr-2" type="submit" id="Aceptar" value="Aceptar">
+                <input class="botons bg-gray-600 text-white p-2 rounded-lg w-full ml-2" type="button" id="ocultar-modal" value="Salir">
+            </div>
+        </form>
+    </div> -->
+
+    <script src="./modal.js"></script>
+    <script src="./appNuevo.js"></script>
+</body>
+</html>
